@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="IWI-b2-1he">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="IWI-b2-1he">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -50,10 +50,65 @@
                     <view key="view" contentMode="scaleToFill" id="EV0-HI-e2i">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="kFZ-MJ-Cwe">
+                                <rect key="frame" x="0.0" y="56" width="414" height="421"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Fs9-WE-EKD">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Fs9-WE-EKD" id="HYV-n6-uOB">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="721-vr-lWl">
+                                <rect key="frame" x="104" y="501" width="206" height="32"/>
+                                <segments>
+                                    <segment title="Small"/>
+                                    <segment title="Medium"/>
+                                    <segment title="Large"/>
+                                </segments>
+                            </segmentedControl>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dF2-q8-9qM">
+                                <rect key="frame" x="107" y="577" width="200" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="WNb-vd-dEj"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZqO-2Y-VMw">
+                                <rect key="frame" x="107" y="621" width="200" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="Giu-yR-ufj"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="iEy-8u-Ooo"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ZqO-2Y-VMw" firstAttribute="top" secondItem="dF2-q8-9qM" secondAttribute="bottom" constant="10" id="N4d-dy-wgD"/>
+                            <constraint firstItem="dF2-q8-9qM" firstAttribute="top" secondItem="721-vr-lWl" secondAttribute="bottom" constant="45" id="OCY-Vk-r9d"/>
+                            <constraint firstItem="ZqO-2Y-VMw" firstAttribute="centerX" secondItem="EV0-HI-e2i" secondAttribute="centerX" id="OWK-ZA-lvC"/>
+                            <constraint firstItem="kFZ-MJ-Cwe" firstAttribute="leading" secondItem="iEy-8u-Ooo" secondAttribute="leading" id="PLE-vt-Ftj"/>
+                            <constraint firstItem="721-vr-lWl" firstAttribute="centerX" secondItem="EV0-HI-e2i" secondAttribute="centerX" id="Tps-a2-zF2"/>
+                            <constraint firstItem="kFZ-MJ-Cwe" firstAttribute="height" secondItem="EV0-HI-e2i" secondAttribute="height" multiplier="0.5" id="UYp-Qz-U8B"/>
+                            <constraint firstItem="721-vr-lWl" firstAttribute="top" secondItem="kFZ-MJ-Cwe" secondAttribute="bottom" constant="24" id="YQP-yw-9co"/>
+                            <constraint firstItem="kFZ-MJ-Cwe" firstAttribute="width" secondItem="EV0-HI-e2i" secondAttribute="width" id="rCd-Xd-zQD"/>
+                            <constraint firstItem="dF2-q8-9qM" firstAttribute="centerX" secondItem="EV0-HI-e2i" secondAttribute="centerX" id="sfm-fX-68b"/>
+                            <constraint firstItem="kFZ-MJ-Cwe" firstAttribute="top" secondItem="iEy-8u-Ooo" secondAttribute="top" id="vq1-bW-faO"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Add New Order" id="wef-jc-kk1"/>
+                    <navigationItem key="navigationItem" title="Add New Order" id="wef-jc-kk1">
+                        <barButtonItem key="leftBarButtonItem" title="Close" id="966-Ck-8jP"/>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="rJV-Wv-dbV"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qp9-EW-hL3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

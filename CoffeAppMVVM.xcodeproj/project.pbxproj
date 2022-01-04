@@ -17,6 +17,8 @@
 		937B620F277DF668005EEDBB /* CoffeAppMVVMUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937B620E277DF668005EEDBB /* CoffeAppMVVMUITestsLaunchTests.swift */; };
 		937B621D277DFAFD005EEDBB /* OrdersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937B621C277DFAFD005EEDBB /* OrdersTableViewController.swift */; };
 		937B621F277DFB53005EEDBB /* AddOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937B621E277DFB53005EEDBB /* AddOrderViewController.swift */; };
+		939447532783CB9B00A1E63E /* Webservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939447522783CB9B00A1E63E /* Webservice.swift */; };
+		939447562783D6B100A1E63E /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939447552783D6B100A1E63E /* Order.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		937B620E277DF668005EEDBB /* CoffeAppMVVMUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeAppMVVMUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		937B621C277DFAFD005EEDBB /* OrdersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersTableViewController.swift; sourceTree = "<group>"; };
 		937B621E277DFB53005EEDBB /* AddOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddOrderViewController.swift; sourceTree = "<group>"; };
+		939447522783CB9B00A1E63E /* Webservice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Webservice.swift; sourceTree = "<group>"; };
+		939447552783D6B100A1E63E /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +105,8 @@
 		937B61EA277DF665005EEDBB /* CoffeAppMVVM */ = {
 			isa = PBXGroup;
 			children = (
+				939447542783D51500A1E63E /* Models */,
+				939447512783C9B000A1E63E /* Services */,
 				937B621B277DF6B7005EEDBB /* Controller */,
 				937B61EB277DF665005EEDBB /* AppDelegate.swift */,
 				937B61ED277DF665005EEDBB /* SceneDelegate.swift */,
@@ -136,6 +142,22 @@
 				937B621E277DFB53005EEDBB /* AddOrderViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		939447512783C9B000A1E63E /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				939447522783CB9B00A1E63E /* Webservice.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		939447542783D51500A1E63E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				939447552783D6B100A1E63E /* Order.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -269,9 +291,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				939447562783D6B100A1E63E /* Order.swift in Sources */,
 				937B61EC277DF665005EEDBB /* AppDelegate.swift in Sources */,
 				937B61EE277DF665005EEDBB /* SceneDelegate.swift in Sources */,
 				937B621D277DFAFD005EEDBB /* OrdersTableViewController.swift in Sources */,
+				939447532783CB9B00A1E63E /* Webservice.swift in Sources */,
 				937B621F277DFB53005EEDBB /* AddOrderViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -379,7 +403,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -434,7 +458,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
