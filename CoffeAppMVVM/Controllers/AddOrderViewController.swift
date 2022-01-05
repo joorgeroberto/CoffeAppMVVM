@@ -10,6 +10,9 @@ import UIKit
 
 class AddOrderViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var emailTextField: UITextField!
+    
     private var coffeeSizesSegmentedControl: UISegmentedControl!
     private var viewModel = AddCoffeeOrderViewModel()
     
@@ -25,6 +28,22 @@ class AddOrderViewController: UIViewController, UITableViewDelegate, UITableView
         
         coffeeSizesSegmentedControl.topAnchor.constraint(equalTo: self.tableView.bottomAnchor, constant: 20).isActive = true
         coffeeSizesSegmentedControl.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+    }
+    
+    @IBAction func save() {
+        let name = nameTextField.text
+        let email = emailTextField.text
+        
+        let selectedSize = coffeeSizesSegmentedControl.titleForSegment(at: coffeeSizesSegmentedControl.selectedSegmentIndex)
+        
+        guard let indexPath = self.tableView.indexPathForSelectedRow else {
+            fatalError("Error selecting a coffee!")
+        }
+        
+        self.viewModel.name = name
+        self.viewModel.email = email
+        self.viewModel.selectedType = selectedSize
+        self.viewModel.selectedSize = self.viewModel.types[indexPath.row]
     }
 }
 

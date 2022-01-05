@@ -7,22 +7,38 @@
 
 import Foundation
 
-enum CoffeType: String, Codable, CaseIterable {
+enum CoffeeType: String, Codable, CaseIterable {
     case cappuccino
     case latte
     case expressino
     case cortado
 }
 
-enum CoffeSize: String, Codable, CaseIterable {
+enum CoffeeSize: String, Codable, CaseIterable {
     case small
     case medium
     case large
 }
 
-class Order: Codable {
+struct Order: Codable {
     let name: String
     let email: String
-    let type: CoffeType
-    let size: CoffeSize
+    let type: CoffeeType
+    let size: CoffeeSize
+}
+
+extension Order {
+    init?(_ viewModel: AddCoffeeOrderViewModel) {
+        guard let name = viewModel.name,
+              let email = viewModel.email,
+              let coffeeType = CoffeeType(rawValue: viewModel.selectedType!.lowercased()),
+              let coffeeSize = CoffeeSize(rawValue: viewModel.selectedSize!.lowercased()) else {
+                  return nil
+              }
+        
+        self.name = name
+        self.email = email
+        self.type = coffeeType
+        self.size = coffeeSize
+    }
 }
