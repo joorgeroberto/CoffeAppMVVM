@@ -17,7 +17,7 @@ struct Resource<T: Codable> {
     let url: URL
 }
 
-class Webservie {
+class Webservice {
     func load<T>(resource: Resource<T>, completion: @escaping(Result<T, NetworkError>) -> Void) {
         URLSession.shared.dataTask(with: resource.url) { data, response, error in
             guard let data = data, error == nil else {
