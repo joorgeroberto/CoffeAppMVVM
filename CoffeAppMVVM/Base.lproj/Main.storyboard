@@ -12,10 +12,11 @@
         <scene sceneID="v3h-ug-clo">
             <objects>
                 <tableViewController id="sAW-Rh-EGK" customClass="OrdersTableViewController" customModule="CoffeAppMVVM" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="Sc6-w8-MPT">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="Sc6-w8-MPT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="separatorColor" systemColor="opaqueSeparatorColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="OrderTableViewCell" textLabel="JXh-ZF-IB7" detailTextLabel="jsy-eN-sIP" style="IBUITableViewCellStyleValue1" id="IMj-d5-227">
                                 <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
@@ -71,7 +72,7 @@
                                 <rect key="frame" x="0.0" y="56" width="414" height="421"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Fs9-WE-EKD">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CoffeeTypeTableViewCell" id="Fs9-WE-EKD">
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Fs9-WE-EKD" id="HYV-n6-uOB">
@@ -80,17 +81,13 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="sRW-eb-kmU" id="jx4-kN-Eag"/>
+                                    <outlet property="delegate" destination="sRW-eb-kmU" id="Zcw-l0-Zi8"/>
+                                </connections>
                             </tableView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="721-vr-lWl">
-                                <rect key="frame" x="104" y="501" width="206" height="32"/>
-                                <segments>
-                                    <segment title="Small"/>
-                                    <segment title="Medium"/>
-                                    <segment title="Large"/>
-                                </segments>
-                            </segmentedControl>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dF2-q8-9qM">
-                                <rect key="frame" x="107" y="577" width="200" height="34"/>
+                                <rect key="frame" x="107" y="611" width="200" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="WNb-vd-dEj"/>
                                 </constraints>
@@ -98,7 +95,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZqO-2Y-VMw">
-                                <rect key="frame" x="107" y="621" width="200" height="34"/>
+                                <rect key="frame" x="107" y="655" width="200" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="Giu-yR-ufj"/>
                                 </constraints>
@@ -110,12 +107,10 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="ZqO-2Y-VMw" firstAttribute="top" secondItem="dF2-q8-9qM" secondAttribute="bottom" constant="10" id="N4d-dy-wgD"/>
-                            <constraint firstItem="dF2-q8-9qM" firstAttribute="top" secondItem="721-vr-lWl" secondAttribute="bottom" constant="45" id="OCY-Vk-r9d"/>
                             <constraint firstItem="ZqO-2Y-VMw" firstAttribute="centerX" secondItem="EV0-HI-e2i" secondAttribute="centerX" id="OWK-ZA-lvC"/>
                             <constraint firstItem="kFZ-MJ-Cwe" firstAttribute="leading" secondItem="iEy-8u-Ooo" secondAttribute="leading" id="PLE-vt-Ftj"/>
-                            <constraint firstItem="721-vr-lWl" firstAttribute="centerX" secondItem="EV0-HI-e2i" secondAttribute="centerX" id="Tps-a2-zF2"/>
                             <constraint firstItem="kFZ-MJ-Cwe" firstAttribute="height" secondItem="EV0-HI-e2i" secondAttribute="height" multiplier="0.5" id="UYp-Qz-U8B"/>
-                            <constraint firstItem="721-vr-lWl" firstAttribute="top" secondItem="kFZ-MJ-Cwe" secondAttribute="bottom" constant="24" id="YQP-yw-9co"/>
+                            <constraint firstItem="iEy-8u-Ooo" firstAttribute="bottom" secondItem="ZqO-2Y-VMw" secondAttribute="bottom" constant="153" id="nm1-pa-4hJ"/>
                             <constraint firstItem="kFZ-MJ-Cwe" firstAttribute="width" secondItem="EV0-HI-e2i" secondAttribute="width" id="rCd-Xd-zQD"/>
                             <constraint firstItem="dF2-q8-9qM" firstAttribute="centerX" secondItem="EV0-HI-e2i" secondAttribute="centerX" id="sfm-fX-68b"/>
                             <constraint firstItem="kFZ-MJ-Cwe" firstAttribute="top" secondItem="iEy-8u-Ooo" secondAttribute="top" id="vq1-bW-faO"/>
@@ -125,6 +120,9 @@
                         <barButtonItem key="leftBarButtonItem" title="Close" id="966-Ck-8jP"/>
                         <barButtonItem key="rightBarButtonItem" title="Save" id="rJV-Wv-dbV"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="kFZ-MJ-Cwe" id="1Ab-fr-SQF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qp9-EW-hL3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -168,6 +166,9 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
