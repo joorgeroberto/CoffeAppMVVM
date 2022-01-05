@@ -8,8 +8,8 @@
 import Foundation
 
 enum CoffeType: String, Codable {
-    case capuccino
-    case lattee
+    case cappuccino
+    case latte
     case expressino
     case cortado
 }
