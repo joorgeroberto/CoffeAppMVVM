@@ -86,7 +86,7 @@
                                     <outlet property="delegate" destination="sRW-eb-kmU" id="Zcw-l0-Zi8"/>
                                 </connections>
                             </tableView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dF2-q8-9qM">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dF2-q8-9qM">
                                 <rect key="frame" x="107" y="611" width="200" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="WNb-vd-dEj"/>
@@ -94,7 +94,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZqO-2Y-VMw">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email@email.com" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZqO-2Y-VMw">
                                 <rect key="frame" x="107" y="655" width="200" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="Giu-yR-ufj"/>
@@ -117,10 +117,20 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add New Order" id="wef-jc-kk1">
-                        <barButtonItem key="leftBarButtonItem" title="Close" id="966-Ck-8jP"/>
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="rJV-Wv-dbV"/>
+                        <barButtonItem key="leftBarButtonItem" title="Close" id="966-Ck-8jP">
+                            <connections>
+                                <action selector="close" destination="sRW-eb-kmU" id="fdX-Xt-1H3"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="rJV-Wv-dbV">
+                            <connections>
+                                <action selector="save" destination="sRW-eb-kmU" id="PE8-f4-ect"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="emailTextField" destination="ZqO-2Y-VMw" id="Nf5-53-O4l"/>
+                        <outlet property="nameTextField" destination="dF2-q8-9qM" id="zmV-6S-0XC"/>
                         <outlet property="tableView" destination="kFZ-MJ-Cwe" id="1Ab-fr-SQF"/>
                     </connections>
                 </viewController>

@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class OrdersTableViewController: UITableViewController {
+class OrdersTableViewController: UITableViewController, AddCoffeeOrderDelegate {
     var orderListViewModel = OrderListViewModel()
     
     override func viewDidLoad() {
@@ -17,12 +17,7 @@ class OrdersTableViewController: UITableViewController {
     }
     
     private func populateOrders() {
-        guard let coffeOrdersURL = URL(string: "https://guarded-retreat-82533.herokuapp.com/orders") else {
-            fatalError("URL was incorrect")
-        }
-        
-        let resource = Resource<[Order]>(url: coffeOrdersURL)
-        Webservice().load(resource: resource) {[weak self] result in
+        Webservice().load(resource: Order.all) {[weak self] result in
             switch result {
             case .success(let orders):
                 self?.orderListViewModel.ordersViewModel = orders.map(OrderViewModel.init)
@@ -33,6 +28,17 @@ class OrdersTableViewController: UITableViewController {
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let navigationController = segue.destination as? UINavigationController,
+              let addCoffeeOrderViewController = navigationController.viewControllers.first as? AddOrderViewController else {
+                  fatalError("Error performing segue!")
+              }
+        
+        addCoffeeOrderViewController.delegate = self
+    }
+}
+
+extension OrdersTableViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -49,5 +55,20 @@ class OrdersTableViewController: UITableViewController {
         cell.detailTextLabel?.text = viewModel.size
 
         return cell
+    }
+}
+
+extension OrdersTableViewController {
+    // Delegate functions of AddCoffeeOrderDelegate protocol
+    func addCoffeeOrderViewControllerDidClose(controller: UIViewController!) {
+        controller.dismiss(animated: true, completion: nil)
+    }
+    
+    func addCoffeeOrderViewControllerDidSave(order: Order, controller: UIViewController!) {
+        let orderViewModel = OrderViewModel(order: order)
+        self.orderListViewModel.ordersViewModel.append(orderViewModel)
+        self.tableView.insertRows(at: [IndexPath.init(row: self.orderListViewModel.ordersViewModel.count - 1, section: 0)], with: .automatic)
+        
+        controller.dismiss(animated: true, completion: nil)
     }
 }
