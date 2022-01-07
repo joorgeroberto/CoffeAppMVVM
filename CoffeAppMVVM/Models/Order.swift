@@ -10,7 +10,7 @@ import Foundation
 enum CoffeeType: String, Codable, CaseIterable {
     case cappuccino
     case latte
-    case expressino
+    case espressino
     case cortado
 }
 
@@ -43,7 +43,7 @@ extension Order {
         }
         
         guard let data = try? JSONEncoder().encode(order) else {
-            fatalError("Error enconding order!")
+            fatalError("Error encoding order!")
         }
         
         var resource = Resource<Order?>(url: url)
@@ -58,14 +58,14 @@ extension Order {
     init?(_ viewModel: AddCoffeeOrderViewModel) {
         guard let name = viewModel.name,
               let email = viewModel.email,
-              let coffeeType = CoffeeType(rawValue: viewModel.selectedType!.lowercased()),
-              let coffeeSize = CoffeeSize(rawValue: viewModel.selectedSize!.lowercased()) else {
+              let selectedType = CoffeeType(rawValue: viewModel.selectedType!.lowercased()),
+              let selectedSize = CoffeeSize(rawValue: viewModel.selectedSize!.lowercased()) else {
                   return nil
               }
         
         self.name = name
         self.email = email
-        self.type = coffeeType
-        self.size = coffeeSize
+        self.type = selectedType
+        self.size = selectedSize
     }
 }

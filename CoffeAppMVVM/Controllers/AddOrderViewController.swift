@@ -42,8 +42,18 @@ class AddOrderViewController: UIViewController, UITableViewDelegate, UITableView
         
         self.viewModel.name = name
         self.viewModel.email = email
-        self.viewModel.selectedType = selectedSize
-        self.viewModel.selectedSize = self.viewModel.types[indexPath.row]
+        self.viewModel.selectedSize = selectedSize
+        self.viewModel.selectedType = self.viewModel.types[indexPath.row]
+        
+        Webservice().load(resource: Order.create(viewModel: viewModel)) { result in
+            switch result {
+            case .success(let order):
+                print(order)
+            case .failure(let error):
+                print(error)
+            }
+            
+        }
     }
 }
 
